@@ -30,6 +30,9 @@ class LinkedList:
             if current.next == self.head:
                 self.head = None
             elif current.data == key:
+                while current.next != self.head:
+                    current = current.next
+                current.next = self.head.next
                 self.head = current.next
             else:
                 while current.next != self.head:
@@ -54,4 +57,5 @@ LL = LinkedList()
 LL.insert(3)
 LL.insert(4)
 LL.insert(5)
+LL.delete(3)
 LL.printLL()
