@@ -15,6 +15,9 @@ class Stack():
         if not self.is_empty():
             return self.items[-1]
 
+    def delete_stack(self):
+        self.items = []
+
     def print_stack(self):
         return self.items
 
@@ -27,4 +30,6 @@ s.append_item("Breaking Bad")
 s.append_item("Big Bang Theory")
 print(s.print_stack())
 print(s.pop_item())
+print(s.print_stack())
+s.delete_stack()
 print(s.print_stack())
