@@ -16,6 +16,8 @@ class BinaryTree:
             return self.in_order_traversal(tree.root, "")
         elif traversal_type == "postorder":
             return self.post_order_traversal(tree.root, "")
+        elif traversal_type == "levelorder":
+            return self.level_order_traversal(tree.root, "")
         else:
             print("Traversal Type \"{}\" is not valid".format(traversal_type))
 
@@ -40,6 +42,17 @@ class BinaryTree:
             traversal += (str(start.value) + "-")
         return traversal
 
+    def level_order_traversal(self, start, traversal):
+        if start:
+            lst = [start.value]
+            while lst:
+                lst.append(start.left.value)
+                lst.append(start.right.value)
+                traversal += (str(lst.pop(0)) + "-")
+                print(traversal)
+
+        return traversal
+
 
 tree = BinaryTree(1)
 tree.root.left = Node(2)
@@ -53,3 +66,4 @@ tree.root.left.left.right = Node(9)
 print(tree.print_tree("preorder"))
 print(tree.print_tree("inorder"))
 print(tree.print_tree("postorder"))
+print(tree.print_tree("levelorder"))
