@@ -5,14 +5,10 @@ import requests
 
 
 def fetching_price(link):
-    # Headers are important to call the links, it tells the website from which browser the request is coming.
     HEADERS = {
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 '
                       'Safari/537.36',
     }
-
-    # Link of the amazon product whose price we are looking after
-    # res = requests.get('https://www.amazon.in/dp/B07J3193GB/ref=cm_sw_r_tw_dp_U_x_io6TEbGZVVJGM', headers=HEADERS)
     res = requests.get(link, headers=HEADERS)
     res.raise_for_status()
     soup = bs4.BeautifulSoup(res.text, 'html.parser')
