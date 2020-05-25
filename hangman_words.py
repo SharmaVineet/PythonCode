@@ -158,7 +158,7 @@ def words():
 def print_hangman(count_chances):
     count_chances -= 1
     if count_chances != 0:
-        print("You have {} chances".format(count_chances))
+        print("You have {} chances\n".format(count_chances))
     get_shapes(count_chances)
     return count_chances
 

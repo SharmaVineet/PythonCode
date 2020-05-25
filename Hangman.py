@@ -45,26 +45,26 @@ def guess_word():
                     word_guessing_list[word_index] = guessed_word
             if "".join(word_guessing_list) != "".join(random_word):
                 clear()
-                print("Used words {}".format(already_used_words))
+                print("Used words {}\n".format(already_used_words))
                 print("".join(word_guessing_list))
                 if 10 > count >= 0 and guessed_wrong_flag:
-                    print("You have {} chances".format(count))
+                    print("You have {} chances\n".format(count))
                     hangman_words.get_shapes(count_chances=count)
             else:
                 clear()
                 print("".join(word_guessing_list))
-                print("Congratulations!! You have completed the HangMan Game!!")
+                print("Congratulations!! You have completed the HangMan Game!!\n")
                 bye()
         else:
             guessed_wrong_flag = True
             clear()
-            print("Used words {}".format(already_used_words))
+            print("Used words {}\n".format(already_used_words))
             print("".join(word_guessing_list))
             new_count = hangman_words.print_hangman(count_chances=count)
             count = new_count
         guess_word()
     else:
-        print("Either Word {} is already used or Empty".format(guessed_word))
+        print("Either Word {} is already used or Empty\n".format(guessed_word))
         guess_word()
 
 
