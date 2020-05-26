@@ -1,4 +1,5 @@
 import os
+import string
 import sys
 
 import hangman_words
@@ -36,7 +37,7 @@ def guess_word():
     global already_used_words
     global guessed_wrong_flag
     guessed_word = input("Please guess the word: ")
-    if guessed_word not in already_used_words and guessed_word:
+    if guessed_word not in already_used_words and guessed_word and guessed_word in string.ascii_letters:
         already_used_words.append(guessed_word)
         if guessed_word in random_word:
             for i, num in enumerate(random_word):
@@ -64,7 +65,7 @@ def guess_word():
             count = new_count
         guess_word()
     else:
-        print("Either Word {} is already used or Empty\n".format(guessed_word))
+        print("Either your last choice {} is already used, Empty or not a valid alphabet \n".format(guessed_word))
         guess_word()
 
 
