@@ -10,7 +10,6 @@ def display_intro(name):
 
 
 def pick_choice(name):
-    choices = {}
     player_choice = input("\nPlease pick 0 or X to start the game: ").upper()
     if player_choice == '0':
         computer_choice = 'X'
@@ -19,8 +18,7 @@ def pick_choice(name):
         computer_choice = '0'
         choices = {'player_choice': player_choice, 'computer_choice': computer_choice}
     else:
-        pick_choice(name)
-    print("{} chose {} and Computer chose {}\n".format(name, choices['player_choice'], choices['computer_choice']))
+        choices = pick_choice(name)
     return choices
 
 
@@ -87,6 +85,8 @@ if __name__ == '__main__':
     player_name = input("Please enter your game: ")
     display_intro(name=player_name)
     player_choices = pick_choice(name=player_name)
+    print("{} chose {} and Computer chose {}\n".format(player_name, player_choices['player_choice'],
+                                                       player_choices['computer_choice']))
     who_plays_first = random.choice(list(player_choices.keys()))
     if who_plays_first == 'player_choice':
         player_move(player_choices)
